@@ -2,15 +2,13 @@ package com.example.spring_boot_jwt_security.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
 @Setter
+@Getter
 @AllArgsConstructor
-@NoArgsConstructor
-public class AuthRequest {
-    private String Email;
+public class UserRegisterRequest {
+    private String fullName;
+    private String email;
     private String password;
-    private String Name;
 }

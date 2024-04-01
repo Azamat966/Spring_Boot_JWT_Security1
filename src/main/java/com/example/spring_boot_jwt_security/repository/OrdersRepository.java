@@ -11,4 +11,5 @@ import javax.transaction.Transactional;
 @Repository
 @Transactional
 public interface OrdersRepository extends JpaRepository<Orders, Long> {
+
 }

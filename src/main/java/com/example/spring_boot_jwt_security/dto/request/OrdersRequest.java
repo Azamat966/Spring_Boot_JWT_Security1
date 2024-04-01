@@ -9,8 +9,9 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthRequest {
-    private String Email;
-    private String password;
-    private String Name;
+public class OrdersRequest {
+    private String first_name;
+    private String age;
+    private String gmail;
+    private String last_name;
 }

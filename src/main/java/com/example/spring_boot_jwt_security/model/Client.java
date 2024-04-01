@@ -15,18 +15,15 @@ import java.util.List;
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
+        private String companyId;
+        private String email;
+        private String name;
 
-    private String address;
-    private String phone;
-    private String name;
-    private String firstName;
-    private String lastName;
-
-
-        @OneToMany(mappedBy = "client")
+        @OneToMany(mappedBy = "client",cascade = CascadeType.ALL)
         private List<Orders> orders;
 
         @ManyToOne
+        @JoinColumn(name = "company_client_id")
         private Company company;
 
     }

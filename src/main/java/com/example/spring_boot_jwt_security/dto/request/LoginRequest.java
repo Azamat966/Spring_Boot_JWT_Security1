@@ -4,20 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.http.ResponseEntity;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class RequestForRegister {
-    private String name;
+public class LoginRequest {
     private String email;
     private String password;
-    private String code;
-
-
-    public ResponseEntity<String> create(RequestForRegister request) {
-        return null;
-    }
 }

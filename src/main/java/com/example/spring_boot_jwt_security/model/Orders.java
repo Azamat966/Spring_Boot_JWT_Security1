@@ -1,22 +1,39 @@
 package com.example.spring_boot_jwt_security.model;
 
-    import lombok.Getter;
-    import lombok.NoArgsConstructor;
-    import lombok.Setter;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-    import javax.persistence.*;
+import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @Entity
-    public class Orders {
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long id;
+public class Orders {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String first_name;
+    private String age;
+    private String gmail;
+    private String last_name;
 
-        @ManyToOne
-        private Client client;
-    }
+
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private Client client;
+
+    @OneToMany(mappedBy = "orders",cascade = CascadeType.ALL)
+    private List<Task> task;
+
+
+//    @OneToMany(mappedBy = "orders")
+//    private List<Employee> employee;
+
+
+
+}
 
 
