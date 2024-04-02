@@ -4,5 +4,9 @@ import lombok.Data;
 
 @Data
 public class CompanyResponse {
-    private String Azamat;
+    private String companyName;
+    private String phone;
+    private String address;
+    private String directorld;
+    private String directorName;
 }

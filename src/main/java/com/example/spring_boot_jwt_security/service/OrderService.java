@@ -1,7 +1,7 @@
 package com.example.spring_boot_jwt_security.service;
 
 import com.example.spring_boot_jwt_security.dto.request.OrdersRequest;
-import com.example.spring_boot_jwt_security.model.Client;
+import com.example.spring_boot_jwt_security.dto.response.OrdersResponse;
 import com.example.spring_boot_jwt_security.model.Orders;
 import com.example.spring_boot_jwt_security.repository.OrdersRepository;
 import lombok.RequiredArgsConstructor;
@@ -16,10 +16,10 @@ public class OrderService {
 
     public void save(OrdersRequest request) {
         Orders orders = new Orders();
-        orders.setFirst_name(request.getFirst_name());
-        orders.setLast_name(request.getLast_name());
-        orders.setAge(request.getAge());
+        orders.setOrder(request.getOrder());
+       // orders.setClientId(request.getClientId());
         ordersRepository.save(orders);
+
     }
 
     public List<Orders> findAll() {
@@ -28,11 +28,26 @@ public class OrderService {
 
 
 
-        public Orders getById(Long id) {
-            return ordersRepository.findById(id)
+        public OrdersResponse getById(Long id) {
+            Orders orders = ordersRepository.findById(id)
                     .orElseThrow(() -> new RuntimeException("Can't find employee with this id: " + id));
+            OrdersResponse response = new OrdersResponse("Order saved successfully");
+            response.setOrder(orders.getOrder());
+            //response.setClientd(orders.getClientId());
+            return response;
         }
     public void deleteByID(Long id){ordersRepository.deleteById(id);}
 
+
+    int count;
+    public int findAlllkjhg (){
+        int count = 0;
+        for (Orders orders: ordersRepository.findAll()){
+            count++;
+        }
+        return count;
+    }
+
 }
+
 

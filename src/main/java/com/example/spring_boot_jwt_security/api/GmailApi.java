@@ -30,7 +30,6 @@ import java.util.Random;
         return "successfully sent ✅";
     }
 
-    // Метод для генерации случайного шестизначного кода
     private String generateSixDigitCode() {
         Random random = new Random();
         int min = 100000; // Минимальное значение для шестизначного числа

@@ -1,6 +1,7 @@
 package com.example.spring_boot_jwt_security.service;
 
 import com.example.spring_boot_jwt_security.dto.request.DirectorRequest;
+import com.example.spring_boot_jwt_security.dto.response.DirectorResponse;
 import com.example.spring_boot_jwt_security.model.Client;
 import com.example.spring_boot_jwt_security.model.Director;
 import com.example.spring_boot_jwt_security.repository.DirectorRepository;
@@ -16,7 +17,7 @@ public class DirectorService {
 
     public void save(DirectorRequest request) {
         Director director  = new Director();
-        director.setFirstName(request.getFirst_name());
+        director.setFirst_name(request.getFirst_name());
         director.setAge(request.getAge());
         directorRepository.save(director);
     }
@@ -26,9 +27,15 @@ public class DirectorService {
     }
 
 
-        public Director getById(Long id) {
-            return directorRepository.findById(id)
+        public DirectorResponse getById(Long id) {
+            Director director = directorRepository.findById(id)
                     .orElseThrow(() -> new RuntimeException("Can't find employee with this id: " + id));
+            DirectorResponse response = new DirectorResponse();
+            response.setLast_name(director.getLast_Name());
+            response.setFirst_name(director.getFirst_name());
+            response.setAge(director.getAge());
+            response.setGmail(director.getGmail());
+            return response;
         }
     public void deleteByID(Long id){directorRepository.deleteById(id);}
 

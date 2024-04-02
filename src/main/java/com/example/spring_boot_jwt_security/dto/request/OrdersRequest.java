@@ -10,8 +10,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrdersRequest {
-    private String first_name;
-    private String age;
-    private String gmail;
-    private String last_name;
+    private String order ;
+    private String clientId;
 }

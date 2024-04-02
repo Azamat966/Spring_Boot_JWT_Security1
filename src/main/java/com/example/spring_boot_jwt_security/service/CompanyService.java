@@ -1,12 +1,9 @@
 package com.example.spring_boot_jwt_security.service;
 
 import com.example.spring_boot_jwt_security.dto.request.CompanyRequest;
-import com.example.spring_boot_jwt_security.dto.request.OrdersRequest;
-import com.example.spring_boot_jwt_security.model.Client;
+import com.example.spring_boot_jwt_security.dto.response.CompanyResponse;
 import com.example.spring_boot_jwt_security.model.Company;
-import com.example.spring_boot_jwt_security.model.Orders;
 import com.example.spring_boot_jwt_security.repository.CompanyRepository;
-import com.example.spring_boot_jwt_security.repository.OrdersRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -32,9 +29,16 @@ public class CompanyService {
 
 
 
-        public Company getById(Long id) {
-            return companyRepository.findById(id)
+        public CompanyResponse getById(Long id) {
+            Company company = companyRepository.findById(id)
                     .orElseThrow(() -> new RuntimeException("Can't find employee with this id: " + id));
+            CompanyResponse response = new CompanyResponse();
+            response.setAddress(company.getAddress());
+            response.setDirectorld(company.getDirectorld());
+            response.setCompanyName(company.getCompanyName());
+            response.setPhone(company.getPhone());
+            response.setDirectorName(company.getDirectorName());
+            return response;
         }
     public void deleteByID(Long id){companyRepository.deleteById(id);}
 
