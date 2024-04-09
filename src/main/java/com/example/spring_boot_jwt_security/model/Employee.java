@@ -20,13 +20,13 @@ public class Employee {
     private String lastName;
     private String salary;
 
-    @ManyToOne
-    @JoinColumn(name = "company_employee_id")
-    private Company company;
 
     @OneToMany(mappedBy = "employee")
     private List<Task> tasks;
 
+    @ManyToOne
+    @JoinColumn(name = "company_employee_id")
+    private Company company;
 //    @ManyToOne
 //    @JoinColumn(name = "task_id")
 //    private Task task;

@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class ClientRequest {
-    private String companyId;
+    private long companyId;
     private String name;
     private String email;
 }

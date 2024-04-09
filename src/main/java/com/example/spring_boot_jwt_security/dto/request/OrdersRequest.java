@@ -11,5 +11,5 @@ import lombok.Setter;
 @NoArgsConstructor
 public class OrdersRequest {
     private String order ;
-    private String clientId;
+    private Long clientId;
 }

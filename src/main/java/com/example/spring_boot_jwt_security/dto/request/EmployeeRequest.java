@@ -11,6 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class EmployeeRequest {
     private Long id;
+    private Long companyid;
     private String firstName;
     private String lastName;
     private String salary;

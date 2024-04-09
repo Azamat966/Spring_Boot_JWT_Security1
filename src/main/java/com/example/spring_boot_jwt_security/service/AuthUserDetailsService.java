@@ -19,7 +19,7 @@ public class AuthUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Optional<User> user = userRepository.findByEmail(email);
         if (user.isEmpty()) {
-            throw new RuntimeException("User with " + email + " not found!");
+            throw  new RuntimeException("User with " + email + " not found!");
         }
         return new AuthUserDetails(user.get());
     }

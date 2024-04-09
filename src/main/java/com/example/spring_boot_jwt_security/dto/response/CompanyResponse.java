@@ -8,5 +8,4 @@ public class CompanyResponse {
     private String phone;
     private String address;
     private String directorld;
-    private String directorName;
 }

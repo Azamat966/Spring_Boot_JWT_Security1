@@ -15,7 +15,6 @@ import java.util.List;
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
-        private String companyId;
         private String email;
         private String name;
 

@@ -14,8 +14,6 @@ public class RequestForRegister {
     private String name;
     private String email;
     private String password;
-    private String code;
-
 
     public ResponseEntity<String> create(RequestForRegister request) {
         return null;

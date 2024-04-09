@@ -15,7 +15,9 @@ public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String order;
+    private String orderName;
+    private String clientid;
+
 
 
     @ManyToOne

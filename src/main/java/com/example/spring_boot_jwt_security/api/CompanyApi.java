@@ -5,11 +5,13 @@ import com.example.spring_boot_jwt_security.dto.response.CompanyResponse;
 import com.example.spring_boot_jwt_security.model.Company;
 import com.example.spring_boot_jwt_security.service.CompanyService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @RestController
 @RequiredArgsConstructor
+@PreAuthorize("hasAnyAuthority('ADMIN')")
 public class CompanyApi {
     private final CompanyService service;
 

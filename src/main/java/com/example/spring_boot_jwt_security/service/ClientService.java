@@ -4,25 +4,31 @@ import com.example.spring_boot_jwt_security.dto.request.ClientRequest;
 import com.example.spring_boot_jwt_security.dto.response.ClientResponse;
 import com.example.spring_boot_jwt_security.dto.response.OrdersResponse;
 import com.example.spring_boot_jwt_security.model.Client;
+import com.example.spring_boot_jwt_security.model.Company;
 import com.example.spring_boot_jwt_security.model.Orders;
 import com.example.spring_boot_jwt_security.repository.ClientRepository;
+import com.example.spring_boot_jwt_security.repository.CompanyRepository;
 import com.example.spring_boot_jwt_security.repository.OrdersRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class ClientService {
     private final ClientRepository clientRepository;
-    private final OrdersRepository ordersRepository;
+    private final CompanyRepository companyRepository;
 
     public void save(ClientRequest request) {
         Client client = new Client();
+        Optional<Company> company = companyRepository.findById(request.getCompanyId());
+        client.setCompany(company.get());
+
+
         client.setName(request.getName());
         client.setEmail(request.getEmail());
-        client.setCompanyId(request.getCompanyId());
         clientRepository.save(client);
     }
 
@@ -38,7 +44,6 @@ public class ClientService {
          client1.setId(client.getId());
          client1.setName(client.getName());
          client1.setEmail(client.getEmail());
-         client1.setCompanyId(client.getCompanyId());
          return client1;
 
 

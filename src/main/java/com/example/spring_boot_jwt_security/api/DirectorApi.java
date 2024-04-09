@@ -5,12 +5,14 @@ import com.example.spring_boot_jwt_security.dto.response.DirectorResponse;
 import com.example.spring_boot_jwt_security.model.Director;
 import com.example.spring_boot_jwt_security.service.DirectorService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@PreAuthorize("hasAnyAuthority('ADMIN')")
 public class DirectorApi {
     private final DirectorService service;
 
